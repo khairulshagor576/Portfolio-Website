@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/','PagesController@index');
-Route::get('/admin/dashbord','PagesController@dashbord');
+Route::get('/','PagesController@index')->name('home');
+Route::get('/admin/dashbord','PagesController@dashbord')->name('admin.dashbord');
+Route::get('/admin/main','MainController@main')->name('admin.main');
 
 Auth::routes();
 
