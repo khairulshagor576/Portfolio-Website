@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','PagesController@index')->name('home');
 Route::get('/admin/dashbord','PagesController@dashbord')->name('admin.dashbord');
 Route::get('/admin/main','MainController@main')->name('admin.main');
+Route::put('/admin/main','MainController@update')->name('admin.main.update');
 
 Auth::routes();
 
