@@ -14,7 +14,7 @@
                     <div class=" col-md-4">
                         <h4>Background Image</h4>
                         <img style="height: 30vh;" class="img-thumbnail" src="{{url($main->bc_image)}}">
-                        <input class="mt-2" type="file" id="bc_img" name="bc_img">
+                        <input class="mt-2" type="file" id="bc_image" name="bc_image">
                     </div>
                     <div class="form-group col-md-4">
                         <div>

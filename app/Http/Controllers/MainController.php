@@ -25,9 +25,9 @@ class MainController extends Controller
         $main->title    = $request->title;
         $main->subtitle = $request->subtitle;
 
-        if($request->file('bc_img'))
+        if($request->file('bc_image'))
         {
-            $img_file=$request->file('bc_img');
+            $img_file=$request->file('bc_image');
             $img_file->storeAs('public/img/',"bc_img.".$img_file->getClientOriginalExtension());
             $main->bc_img='storage/img/bc_img.'.$img_file->getClientOriginalExtension();
         }
@@ -41,6 +41,6 @@ class MainController extends Controller
 
         $main->save();
 
-        //return redirect()->route('admin.main')->se
+        return redirect()->route('admin.main')->with('success',"Data Upadated Successfully");
     }
 }
