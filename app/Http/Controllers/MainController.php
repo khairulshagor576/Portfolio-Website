@@ -29,7 +29,7 @@ class MainController extends Controller
         {
             $img_file=$request->file('bc_image');
             $img_file->storeAs('public/img/',"bc_img.".$img_file->getClientOriginalExtension());
-            $main->bc_img='storage/img/bc_img.'.$img_file->getClientOriginalExtension();
+            $main->bc_image='storage/img/bc_img.'.$img_file->getClientOriginalExtension();
         }
 
         if($request->file('resume'))

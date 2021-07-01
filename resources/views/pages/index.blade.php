@@ -36,11 +36,11 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead" style="background-image: url(<?php echo $main->bc_image; ?>)" ;>
             <div class="container">
-                <div class="masthead-subheading">Welcome To My Website!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <div class="masthead-subheading">{{$main->subtitle}}</div>
+                <div class="masthead-heading text-uppercase">{{$main->title}}u</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{url($main->resume)}}">Resume</a>
             </div>
         </header>
         <!-- Services-->

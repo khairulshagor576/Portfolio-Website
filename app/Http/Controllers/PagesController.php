@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Main;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
    public function index()
    {
-       return view('pages.index');
+       $main = Main::first();
+       return view('pages.index',['main'=>$main]);
    }
 
     public function dashbord()
