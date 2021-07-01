@@ -56,9 +56,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $service=Service::all();
+        return view('pages.services.list',['services'=>$service]);
     }
 
     /**

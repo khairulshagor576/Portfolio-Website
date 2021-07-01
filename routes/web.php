@@ -23,6 +23,7 @@ Route::get('/admin/main','MainController@main')->name('admin.main');
 Route::put('/admin/main','MainController@update')->name('admin.main.update');
 Route::get('/admin/services/create','ServiceController@create')->name('admin.service.create');
 Route::post('/admin/services/store','ServiceController@store')->name('admin.service.store');
+Route::get('/admin/services/list','ServiceController@show')->name('admin.service.list');
 
 Auth::routes();
 
