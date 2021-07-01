@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item"><a href="{{route('admin.dashbord')}}">Dashboard</a></li>
                 <li class="breadcrumb-item active">Create</li>
             </ol>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.service.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="form-group col-md-4">

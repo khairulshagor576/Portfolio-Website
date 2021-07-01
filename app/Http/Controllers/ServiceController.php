@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -34,7 +35,19 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'icon'=>'required|string',
+            'title'=>'required|string',
+            'description'=>'required|string',
+        ]);
+
+        $service=new Service();
+        $service->icon       = $request->icon;
+        $service->title      = $request->title;
+        $service->description= $request->description;
+        $service->save();
+
+        return redirect()->route('admin.service.create')->with('success','Data Created Successfully');
     }
 
     /**
