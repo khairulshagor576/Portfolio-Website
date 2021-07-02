@@ -84,6 +84,12 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'icon'=>'required|string',
+            'title'=>'required|string',
+            'description'=>'required|string',
+        ]);
+
         $service=Service::find($id);
 
         $service->icon        = $request->icon;

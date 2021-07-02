@@ -18,15 +18,27 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/','PagesController@index')->name('home');
-Route::get('/admin/dashbord','PagesController@dashbord')->name('admin.dashbord');
-Route::get('/admin/main','MainController@main')->name('admin.main');
-Route::put('/admin/main','MainController@update')->name('admin.main.update');
-Route::get('/admin/services/create','ServiceController@create')->name('admin.service.create');
-Route::post('/admin/services/store','ServiceController@store')->name('admin.service.store');
-Route::get('/admin/services/list','ServiceController@show')->name('admin.service.list');
-Route::get('/admin/services/edit/{id}','ServiceController@edit')->name('admin.service.edit');
-Route::post('/admin/services/update/{id}','ServiceController@update')->name('admin.service.update');
-Route::get('/admin/services/delete/{id}','ServiceController@destroy')->name('admin.service.delete');
+
+Route::prefix('admin')->group(function(){
+    Route::get('/dashbord','PagesController@dashbord')->name('admin.dashbord');
+    Route::get('/main','MainController@main')->name('admin.main');
+    Route::put('/main','MainController@update')->name('admin.main.update');
+    //Service's Route:
+    Route::get('/service/create','ServiceController@create')->name('admin.service.create');
+    Route::post('/service/store','ServiceController@store')->name('admin.service.store');
+    Route::get('/service/list','ServiceController@show')->name('admin.service.list');
+    Route::get('/service/edit/{id}','ServiceController@edit')->name('admin.service.edit');
+    Route::post('/service/update/{id}','ServiceController@update')->name('admin.service.update');
+    Route::get('/service/delete/{id}','ServiceController@destroy')->name('admin.service.delete');
+    //Porfolio's Route:
+    Route::get('/portfolio/create','PortfolioController@create')->name('admin.portfolio.create');
+    Route::post('/portfolio/store','PortfolioController@store')->name('admin.portfolio.store');
+    Route::get('/portfolio/list','PortfolioController@show')->name('admin.portfolio.list');
+    Route::get('/portfolio/edit/{id}','PortfolioController@edit')->name('admin.portfolio.edit');
+    Route::post('/portfolio/update/{id}','PortfolioController@update')->name('admin.portfolio.update');
+    Route::get('/portfolio/delete/{id}','PortfolioController@destroy')->name('admin.portfolio.delete');
+});
+
 
 Auth::routes();
 

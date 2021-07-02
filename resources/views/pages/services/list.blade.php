@@ -24,7 +24,7 @@
                     <th>{{$sl++}}</th>
                     <td>{{$service->icon}}</td>
                     <td>{{$service->title}}</td>
-                    <td>{{$service->description}}</td>
+                    <td>{{Str::limit(strip_tags($service->description),20)}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-3">
