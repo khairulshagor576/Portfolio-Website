@@ -25,7 +25,16 @@
                     <td>{{$service->icon}}</td>
                     <td>{{$service->title}}</td>
                     <td>{{$service->description}}</td>
-                    <td></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="{{route('admin.service.edit',$service->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{{route('admin.service.delete',$service->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

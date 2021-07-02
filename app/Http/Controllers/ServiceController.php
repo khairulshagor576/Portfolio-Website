@@ -70,7 +70,9 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service=Service::find($id);
+        //return $service;
+        return view('pages.services.edit',['service'=>$service]);
     }
 
     /**
@@ -82,7 +84,14 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $service=Service::find($id);
+
+        $service->icon        = $request->icon;
+        $service->title       = $request->title;
+        $service->description = $request->description;
+        $service->save();
+
+        return redirect()->route('admin.service.list')->with('success','Data Updated Successfully');
     }
 
     /**
@@ -93,6 +102,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service=Service::find($id);
+        $service->delete();
+        return redirect()->route('admin.service.list')->with('success','Data Deleted Successfully');
     }
 }
