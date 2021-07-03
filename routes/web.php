@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/service/delete/{id}','ServiceController@destroy')->name('admin.service.delete');
     //Porfolio's Route:
     Route::get('/portfolio/create','PortfolioController@create')->name('admin.portfolio.create');
-    Route::post('/portfolio/store','PortfolioController@store')->name('admin.portfolio.store');
+    Route::put('/portfolio/store','PortfolioController@store')->name('admin.portfolio.store');
     Route::get('/portfolio/list','PortfolioController@show')->name('admin.portfolio.list');
     Route::get('/portfolio/edit/{id}','PortfolioController@edit')->name('admin.portfolio.edit');
     Route::post('/portfolio/update/{id}','PortfolioController@update')->name('admin.portfolio.update');
