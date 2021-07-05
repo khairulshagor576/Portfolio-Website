@@ -85,7 +85,8 @@ class PortfolioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $portfolio=Portfolio::find($id);
+        return view('pages.portfolios.edit',['portfolio'=>$portfolio]);
     }
 
     /**
