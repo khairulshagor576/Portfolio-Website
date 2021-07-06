@@ -98,7 +98,37 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required|string',
+            'sub_title'=>'required|string',
+            'description'=>'required|string',
+            'client'=>'required|string',
+            'category'=>'required|string',
+        ]);
+
+        $portfolio= Portfolio::find($id);
+        $portfolio->title       = $request->title;
+        $portfolio->sub_title   = $request->sub_title;
+        $portfolio->description = $request->description;
+        $portfolio->client      = $request->client;
+        $portfolio->category    = $request->category;
+
+        if($request->file('big_image'))
+        {
+            $big_image=$request->file('big_image');
+            Storage::putFile('public/img/',$big_image);
+            $portfolio->big_image="storage/img/".$big_image->hashName();
+        }
+
+        if($request->file('small_image'))
+        {
+            $small_image=$request->file('small_image');
+            Storage::putFile('public/img/',$small_image);
+            $portfolio->small_image="storage/img/".$small_image->hashName();
+        }
+        $portfolio->save();
+
+        return redirect()->route('admin.portfolio.list')->with('success','Portfolio Updated Successfully');
     }
 
     /**
@@ -109,6 +139,8 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $portfolio=Portfolio::find($id);
+        $portfolio->delete();
+        return redirect()->route('admin.portfolio.list')->with('success','Data Deleted Successfully');
     }
 }
