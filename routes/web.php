@@ -37,6 +37,14 @@ Route::prefix('admin')->group(function(){
     Route::get('/portfolio/edit/{id}','PortfolioController@edit')->name('admin.portfolio.edit');
     Route::post('/portfolio/update/{id}','PortfolioController@update')->name('admin.portfolio.update');
     Route::get('/portfolio/delete/{id}','PortfolioController@destroy')->name('admin.portfolio.delete');
+
+    //About's Route:
+    Route::get('/about/create','AboutController@create')->name('admin.about.create');
+    Route::put('/about/store','AboutController@store')->name('admin.about.store');
+    Route::get('/about/list','AboutController@show')->name('admin.about.list');
+    Route::get('/about/edit/{id}','AboutController@edit')->name('admin.about.edit');
+    Route::post('/about/update/{id}','AboutController@update')->name('admin.about.update');
+    Route::get('/about/delete/{id}','AboutController@destroy')->name('admin.about.delete');
 });
 
 
