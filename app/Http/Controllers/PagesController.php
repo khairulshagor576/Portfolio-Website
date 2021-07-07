@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Main;
 use App\Portfolio;
 use App\Service;
@@ -14,7 +15,8 @@ class PagesController extends Controller
        $main = Main::first();
        $services=Service::all();
        $portfolios=Portfolio::all();
-       return view('pages.index',['main'=>$main,'services'=>$services,'portfolios'=>$portfolios]);
+       $abouts=About::all();
+       return view('pages.index',['main'=>$main,'services'=>$services,'portfolios'=>$portfolios,'abouts'=>$abouts]);
    }
 
     public function dashbord()
